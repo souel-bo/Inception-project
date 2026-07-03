@@ -7,6 +7,8 @@ COPY ./conf/nginx.conf /etc/nginx/conf.d/default.conf
 
 COPY ./tools/entry_point.sh /usr/local/bin/entry_point.sh
 
+COPY ./tools/index.html /var/www/wordpress/index.html
+
 RUN chmod +x /usr/local/bin/entry_point.sh
 
 ENTRYPOINT ["/usr/local/bin/entry_point.sh"]

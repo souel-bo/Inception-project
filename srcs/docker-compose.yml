@@ -13,8 +13,8 @@ services:
       - "443:443"
     
     # 4. Set up persistent storage volumes for your web files
-    volumes:
-      - wordpress_data:/var/www/html
+    # volumes:
+    #   - wordpress_data:/var/www/wordpress
     
     # 5. Ensure the container restarts automatically if it crashes
     restart: always
