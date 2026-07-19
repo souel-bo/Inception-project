@@ -32,6 +32,13 @@ if [ ! -f wp-config.php ]; then
 
 fi
 
+case "${WP_ADMIN_USER}" in
+    *[Aa][Dd][Mm][Ii][Nn]*|*[Aa][Dd][Mm][Ii][Nn][Ii][Ss][Tt][Rr][Aa][Tt][Oo][Rr]*)
+        echo "Error: administrator username must not contain 'admin' or 'administrator'."
+        exit 1
+        ;;
+esac
+
 if ! wp core is-installed --allow-root; then
     echo "Installing WordPress..."
     wp core install \

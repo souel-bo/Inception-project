@@ -1,14 +1,12 @@
-version: '3.8'
-
 services:
   mariadb:
     build:
       context: ./requirements/mariadb
     container_name: mariadb
-    # Rule: Containers must restart in case of a crash
     restart: on-failure
     env_file:
       - .env
+      - ../secrets/mariadb_credentials/db_credentials.txt
     volumes:
       - mariadb_data:/var/lib/mysql
     networks:
@@ -21,6 +19,7 @@ services:
     restart: on-failure
     env_file:
       - .env
+      - ../secrets/wordpress_credentials/wp_credentials.txt
     volumes:
       - wp_data:/var/www/wordpress
     networks:
@@ -40,14 +39,12 @@ services:
     networks:
       - inception_network
 
-# Rule: Must use Docker named volumes for persistent storage
 volumes:
   mariadb_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      # Rule: Must store data inside /home/login/data (Replace 'your_username')
       device: /home/sfyn/data/mariadb
 
   wp_data:
@@ -55,10 +52,8 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      # Rule: Must store data inside /home/login/data (Replace 'your_username')
       device: /home/sfyn/data/wordpress
 
-# Rule: A docker-network that establishes the connection
 networks:
   inception_network:
     driver: bridge
