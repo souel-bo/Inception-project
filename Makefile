@@ -10,6 +10,8 @@ up:
 down:
 	$(COMPOSE) down
 
+
+
 re:
 	sudo rm -rf /home/sfyn/data/wordpress
 	sudo rm -rf /home/sfyn/data/mariadb

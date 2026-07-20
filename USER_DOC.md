@@ -65,16 +65,6 @@ make re
 
 ---
 
-# Cleaning the Project
-
-To remove containers, images and persistent data:
-
-```bash
-make fclean
-```
-
----
-
 # Accessing the Website
 
 Open your browser and navigate to:
