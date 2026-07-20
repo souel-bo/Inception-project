@@ -13,5 +13,7 @@ down:
 re:
 	sudo rm -rf /home/sfyn/data/wordpress
 	sudo rm -rf /home/sfyn/data/mariadb
+	mkdir -p /home/sfyn/data/wordpress
+	mkdir -p /home/sfyn/data/mariadb
 	$(COMPOSE) down
-	$(COMPOSE) up -d --build
+	$(COMPOSE) up --build

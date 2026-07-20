@@ -7,6 +7,7 @@ services:
     env_file:
       - .env
       - ../secrets/mariadb_credentials/db_credentials.txt
+      - ../secrets/wordpress_credentials/wp_credentials.txt
     volumes:
       - mariadb_data:/var/lib/mysql
     networks:
@@ -20,6 +21,7 @@ services:
     env_file:
       - .env
       - ../secrets/wordpress_credentials/wp_credentials.txt
+      - ../secrets/mariadb_credentials/db_credentials.txt
     volumes:
       - wp_data:/var/www/wordpress
     networks:
